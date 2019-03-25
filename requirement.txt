@@ -1,0 +1,6 @@
+tensorflow
+tensorflow-gpu
+Keras
+Keras-Preprocessing
+audiosegment
+scikit-learn
