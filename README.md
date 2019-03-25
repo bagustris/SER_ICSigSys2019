@@ -9,3 +9,6 @@ Step to reproduce the result:
 - Run [SER_ICSigSys2019/code/python_files/ICSigSys4.ipynb](https://github.com/bagustris/SER_ICSigSys2019/blob/master/code/python_files/ICSigSys4.ipynb)
 
 Besides notebook, .py python files are provided.
+
+#### Requirement
+The python used is version 3.6 with latest modules for each packages.
