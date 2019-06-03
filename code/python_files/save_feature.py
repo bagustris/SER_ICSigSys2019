@@ -40,9 +40,9 @@ def calculate_features(frames, freq, options):
 framerate = 16000
 data_path = '/media/bagus/data01/dataset/IEMOCAP_full_release/'
 with open(data_path + 'data_collected.pickle', 'rb') as handle:
-    data2 = pickle.load(handle)
+    data = pickle.load(handle)
 
-
+speech = [s['signal'] for s in data]
 ## outlier removal
 # delete noisy speech
 #speech = np.delete(speeches, (1061, 1430, 1500, 1552, 1566, 1574, 1575, 1576, 1862, 1863, 1864, 1865, 1868, 1869,
@@ -57,8 +57,8 @@ with open(data_path + 'data_collected.pickle', 'rb') as handle:
 
 # doing silence removal, only threshold under 0.01 wokrks
 voiced_feat = []
-duration = 0.1
-threshold = 0.001
+duration = 0.1  # 0.1, 0.06, 0.01
+threshold = 0.1 # 0.1, 0.07, 0.01
 
 for i in range(len(speech)):
     x_head = data2[i]['signal']
@@ -69,8 +69,9 @@ for i in range(len(speech)):
     #st_features = calculate_features(x_head, framerate, None)
     st_features, _ = pad_sequence_into_array(st_features, maxlen=100)
     voiced_feat.append(st_features.T)
-    print(i)
+    if i%100 == 0:
+        print(i)
 
 voiced_feat = np.array(voiced_feat)
 voiced_feat.shape
-np.save('voiced_feat_file_01_007.npy', voiced_feat)
+np.save('featAS/voiced_feat_file_01_01.npy', voiced_feat)
