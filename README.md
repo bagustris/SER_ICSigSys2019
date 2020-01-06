@@ -11,4 +11,4 @@ Step to reproduce the result:
 Besides notebook, .py python files are provided.
 
 #### Requirement
-The python used is version 3.6 with latest modules for each packages.
+The python used is version 3.6 with latest modules for each packages (at the time of writing (July 2019)).
